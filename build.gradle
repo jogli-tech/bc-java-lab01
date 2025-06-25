@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0.0'
+sourceCompatibility = '8'
+targetCompatibility = '8'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'com.jogli.bootcamp.java8.Main'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Configuración para mostrar información de compilación
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+// Tarea personalizada para ejecutar todos los ejemplos
+task runExamples(type: JavaExec) {
+    group = 'application'
+    description = 'Ejecuta todos los ejemplos de Java 8'
+    mainClass = 'com.jogli.bootcamp.java8.Main'
+    classpath = sourceSets.main.runtimeClasspath
+} 
